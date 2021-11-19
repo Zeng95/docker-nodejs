@@ -1,13 +1,16 @@
-import express from 'express';
+import express, { Application } from 'express';
 
-const app = express();
-const PORT = 8080;
+const app: Application = express();
+const PORT = process.env.PORT || 8080;
 const HOST = 'localhost';
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
 app.get('/', (req: express.Request, res: express.Response) => {
-  console.log(req.url);
-  res.send('Hello World');
+  res.send(`TypeScript App is running on: ${req.url}`);
 });
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Running on http://${HOST}:${PORT}`);
+})

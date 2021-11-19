@@ -7,7 +7,9 @@
   "author": "Leo Zeng <qingchun1995@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "npx ts-node-dev src/main.ts"
+    "dev": "npx ts-node-dev src/main.ts",
+    "start": "npx ts-node dist/main.js",
+    "build": "tsc -p ."
   },
   "dependencies": {
     "@types/node": "^16.11.8",
